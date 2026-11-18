@@ -44,8 +44,8 @@ const PROYECTOS = [
    ---------------------------------------------------------- */
 const ITEMS = [
   // ---- Proyecto uno ----
-  { proyecto: "proyecto-uno", tipo: "video",  titulo: "Título del video", anio: 2025, youtube: "ID_DEL_VIDEO" },
-  { proyecto: "proyecto-uno", tipo: "musica", titulo: "Tema en Spotify", anio: 2025, spotify: "track/ID_DEL_TEMA" },
+  { proyecto: "proyecto-uno", tipo: "video",  titulo: "Título del video", anio: 2025, youtube: "https://www.youtube.com/watch?v=lpFNldZWI6Y&list=RDlpFNldZWI6Y&start_radio=1" },
+  { proyecto: "proyecto-uno", tipo: "musica", titulo: "Tema en Spotify", anio: 2025, spotify: "track/https://music.youtube.com/watch?v=UxzvG8mewkc&si=UeoUd6cCqACg3VEo&drli=1" },
   { proyecto: "proyecto-uno", tipo: "musica", titulo: "Tema en YouTube", anio: 2024, youtube: "ID_DEL_VIDEO" },
   { proyecto: "proyecto-uno", tipo: "foto",   titulo: "Descripción de la foto", anio: 2025, archivo: "img/foto-01.jpg" },
   { proyecto: "proyecto-uno", tipo: "foto",   titulo: "Otra foto", anio: 2024, archivo: "img/foto-02.jpg" },

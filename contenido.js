@@ -23,7 +23,7 @@ const PROYECTOS = [
   { id: "theravennas",
     nombre: "The Ravennas",
     descripcion: "Banda de rock?",
-    imagen: "img/TheRavennas.png"},
+    imagen: "img/TheRavennas/TheRavennas.png"},
   { id: "maquinas",
     nombre: "Máquinas de Emoción Perpetua",
     descripcion: "Qué es este otro proyecto, en una frase." }

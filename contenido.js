@@ -20,13 +20,22 @@ const SITIO = {
    id:  una palabra en minúsculas, sin espacios ni acentos (va en la URL)
    ---------------------------------------------------------- */
 const PROYECTOS = [
-  { id: "theravennas",
+  { 
+    id: "theravennas",
     nombre: "The Ravennas",
     descripcion: "Banda de rock?",
-    imagen: "img/TheRavennas/TheRavennas.png"},
-  { id: "maquinas",
+    imagen: "img/TheRavennas/TheRavennas.png",
+    links: [
+      { nombre: "Instagram", url: "https://instagram.com/the.ravennas" },
+      { nombre: "YouTube",   url: "https://youtube.com/@TheRavennas" },
+      { nombre: "Spotify",   url: "https://open.spotify.com/artist/3y3kPrt6pOd0n4nilL18k4" }
+    ]
+  },
+  { 
+    id: "maquinas",
     nombre: "Máquinas de Emoción Perpetua",
-    descripcion: "Qué es este otro proyecto, en una frase." }
+    descripcion: "Qué es este otro proyecto, en una frase." 
+  }
 ];
 
 /* ----------------------------------------------------------

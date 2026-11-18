@@ -59,6 +59,9 @@ body.con-fondo .hero p{color:var(--ink)}
 .project-card h2{font-size:clamp(1.7rem,4vw,2.5rem)}
 .project-card p{color:var(--muted);margin:.5rem 0}
 .project-card .counts{font-size:.9rem;color:var(--muted)}
+.links{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;list-style:none;padding:0}
+.links a{display:inline-block;font:800 .95rem var(--font-display);padding:.4rem 1rem;border:2px solid var(--ink);border-radius:99px;text-decoration:none}
+.links a:hover{background:var(--ink);color:var(--bg)}
 .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
 .chips button{font:600 .95rem var(--font-display);padding:.35rem .9rem;border:1px solid var(--line);background:none;color:var(--ink);border-radius:99px;cursor:pointer}
 .chips button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
@@ -163,7 +166,13 @@ function tarjeta(item){
  if(item.archivo)li.append(el("a",{href:item.archivo,download:""},"Descargar"));
  return li;
 }
-function pageHead(titulo,descripcion){return el("header",{class:"page-head"},el("h1",{},titulo),descripcion?el("p",{},descripcion):null)}
+function nombreDeLink(url){try{const h=new URL(url).hostname.replace(/^(www|open|m)\./,"").split(".")[0];return h.charAt(0).toUpperCase()+h.slice(1)}catch(e){return url}}
+function listaLinks(links){
+ const ok=(links||[]).filter(l=>l&&typeof l.url==="string"&&/^https?:\/\//.test(l.url));
+ if(!ok.length)return null;
+ return el("ul",{class:"links","aria-label":"Enlaces del proyecto"},ok.map(l=>el("li",{},el("a",{href:l.url,target:"_blank",rel:"noopener noreferrer"},l.nombre||nombreDeLink(l.url)))));
+}
+function pageHead(titulo,descripcion,links){return el("header",{class:"page-head"},el("h1",{},titulo),descripcion?el("p",{},descripcion):null,listaLinks(links))}
 function vistaInicio(){
  document.title=SITIO.nombre;
  if(SITIO.imagenFondo){const f=document.getElementById("fondo");f.style.backgroundImage="url(\""+encodeURI(SITIO.imagenFondo)+"\")";f.style.setProperty("--velo",(SITIO.velo!=null?SITIO.velo:50)+"%");document.body.classList.add("con-fondo")}
@@ -202,7 +211,7 @@ function vistaProyecto(proyecto){
   const b=el("button",{type:"button","data-t":t},t==="todos"?"Todo":TIPOS[t]);
   b.addEventListener("click",()=>{filtro=t;pintar()});chips.append(b);
  });
- app.replaceChildren(pageHead(proyecto.nombre,proyecto.descripcion),chips,cuerpo);pintar();
+ app.replaceChildren(pageHead(proyecto.nombre,proyecto.descripcion,proyecto.links),chips,cuerpo);pintar();
 }
 function vistaIndiceTipo(tipo){
  const proyectos=PROYECTOS.filter(p=>itemsDe(p.id).some(i=>i.tipo===tipo));

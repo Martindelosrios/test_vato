@@ -3,114 +3,99 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Portfolio</title>
-
-<!-- Tipografías: cambialas por las tuyas -->
+<title>VaTó Artística Colectiva</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-
 <style>
-/* ===== TOKENS: acá se cambia toda la estética ===== */
 :root {
-  --bg: #E9EBEE; --surface: #DADDE2; --ink: #14161A;
-  --muted: #5B616B; --accent: #2F4BFF; --line: #B9BEC6;
-  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
-  --font-text: "Source Serif 4", Georgia, serif;
-  --gap: clamp(1rem, 3vw, 2rem);
-  --page: min(1100px, 100% - 2 * var(--gap));
-  color-scheme: light;
+  --bg:#E9EBEE; --surface:#DADDE2; --ink:#14161A; --muted:#5B616B;
+  --accent:#2F4BFF; --line:#B9BEC6;
+  --font-display:"Bricolage Grotesque",system-ui,sans-serif;
+  --font-text:"Source Serif 4",Georgia,serif;
+  --gap:clamp(1rem,3vw,2rem); --page:min(1100px,100% - 2 * var(--gap));
+  color-scheme:light;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #111317; --surface: #1D2026; --ink: #ECEEF1;
-    --muted: #9AA1AC; --accent: #7F92FF; --line: #343842;
-    color-scheme: dark;
-  }
-}
-
-/* ===== BASE ===== */
-*, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--bg); color: var(--ink); font: 1.125rem/1.6 var(--font-text); }
-h1, h2, h3 { font-family: var(--font-display); line-height: 1.05; margin: 0; }
-a { color: inherit; text-decoration-color: var(--accent); text-underline-offset: .2em; }
-a:hover { color: var(--accent); }
-:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-img { max-width: 100%; display: block; }
-.wrap { width: var(--page); margin-inline: auto; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-
-/* ===== NAVEGACIÓN ===== */
-.site-nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-.site-nav .wrap { display: flex; align-items: baseline; gap: 1.5rem; padding-block: .8rem; }
-.site-nav .brand { font: 800 1.1rem var(--font-display); text-decoration: none; white-space: nowrap; }
-.site-nav ul { display: flex; gap: 1.2rem; list-style: none; margin: 0; padding: 0; font: 600 .95rem var(--font-display); overflow-x: auto; white-space: nowrap; }
-.site-nav ul a { text-decoration: none; padding-block: .2rem; border-bottom: 2px solid transparent; }
-.site-nav ul a:hover { border-color: var(--line); }
-.site-nav ul a[aria-current="page"] { border-color: var(--accent); }
-
-/* ===== PORTADA ===== */
-.hero { padding-block: clamp(3.5rem, 12vw, 8rem) clamp(2rem, 6vw, 4rem); }
-.hero h1 { font-size: clamp(3rem, 12vw, 9rem); font-weight: 800; letter-spacing: -.04em; }
-.hero p { max-width: 38ch; margin: 1.5rem 0 0; font-size: 1.3rem; color: var(--muted); }
-.projects { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
-.projects a { display: grid; gap: .3rem 2rem; grid-template-columns: 1fr; padding-block: 1.6rem; border-bottom: 1px solid var(--line); text-decoration: none; }
-.projects h2 { font-size: clamp(1.8rem, 5vw, 3rem); letter-spacing: -.02em; }
-.projects p { margin: 0; color: var(--muted); }
-.projects .counts { font-size: .95rem; color: var(--muted); }
-.projects a:hover h2 { color: var(--accent); }
-@media (min-width: 800px) { .projects a { grid-template-columns: 1.2fr 1fr; align-items: baseline; } .projects .counts { grid-column: 2; } }
-
-/* ===== PÁGINA DE PROYECTO / TODO ===== */
-.page-head { padding-block: clamp(2.5rem, 8vw, 5rem) 1.5rem; }
-.page-head h1 { font-size: clamp(2.6rem, 9vw, 6rem); font-weight: 800; letter-spacing: -.035em; }
-.page-head p { max-width: 45ch; margin: 1rem 0 0; color: var(--muted); font-size: 1.2rem; }
-.chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
-.chips button { font: 600 .95rem var(--font-display); padding: .35rem .9rem; border: 1px solid var(--line); background: none; color: var(--ink); border-radius: 99px; cursor: pointer; }
-.chips button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-
-.group { padding-block: clamp(2rem, 5vw, 3.5rem); border-top: 1px solid var(--line); }
-.group > h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: 1.5rem; }
-.grid { display: grid; gap: var(--gap); grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); align-items: start; }
-.card { margin: 0; }
-.caption { font-size: .95rem; color: var(--muted); margin: .5rem 0 0; }
-.caption strong { color: var(--ink); font-weight: 600; }
-
-.embed { position: relative; aspect-ratio: 16 / 9; background: var(--surface); }
-.embed.fixed { aspect-ratio: auto; }
-.embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-.yt { position: absolute; inset: 0; width: 100%; border: 0; padding: 0; cursor: pointer; background: var(--surface) center / cover no-repeat; }
-.yt .play { position: absolute; left: 50%; top: 50%; width: 4rem; height: 4rem; translate: -50% -50%; border-radius: 50%; background: var(--ink); }
-.yt .play::after { content: ""; position: absolute; left: 53%; top: 50%; translate: -50% -50%; border-left: 1.1rem solid var(--bg); border-block: .7rem solid transparent; }
-.yt:hover .play { background: var(--accent); }
-
-.gallery { columns: 3 240px; column-gap: var(--gap); }
-.gallery .card { break-inside: avoid; margin-bottom: var(--gap); }
-.gallery button { display: block; width: 100%; padding: 0; border: 0; background: var(--surface); cursor: zoom-in; min-height: 120px; }
-.gallery img { width: 100%; height: auto; }
-
-dialog.lightbox { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 96vh; }
-dialog.lightbox::backdrop { background: rgb(0 0 0 / .88); }
-dialog.lightbox img { max-width: 96vw; max-height: 88vh; margin: auto; }
-dialog.lightbox form { text-align: center; }
-dialog.lightbox button { margin-top: .6rem; font: 600 1rem var(--font-display); padding: .4rem 1rem; cursor: pointer; }
-
-.texts { list-style: none; margin: 0; padding: 0; max-width: 70ch; }
-.texts li { padding-block: 1.1rem; border-bottom: 1px solid var(--line); }
-.texts li:first-child { padding-top: 0; }
-.texts h3 { font-size: 1.35rem; }
-.texts p { margin: .3rem 0 .5rem; color: var(--muted); }
-.texts a, details summary { font: 600 .95rem var(--font-display); }
-details summary { cursor: pointer; }
-.reading { margin-top: 1rem; max-width: 60ch; color: var(--ink); }
-.empty { color: var(--muted); padding-block: 2rem; }
-
-footer { border-top: 1px solid var(--line); padding-block: 2.5rem; margin-top: 3rem; color: var(--muted); font-size: .95rem; }
-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+@media(prefers-color-scheme:dark){:root{--bg:#111317;--surface:#1D2026;--ink:#ECEEF1;--muted:#9AA1AC;--accent:#7F92FF;--line:#343842;color-scheme:dark}}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.125rem/1.6 var(--font-text)}
+h1,h2,h3{font-family:var(--font-display);line-height:1.05;margin:0}
+a{color:inherit;text-decoration-color:var(--accent);text-underline-offset:.2em}
+a:hover{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+img{max-width:100%;display:block}
+.wrap{width:var(--page);margin-inline:auto}
+.site-nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.site-nav .wrap{display:flex;align-items:center;gap:1.5rem;padding-block:.8rem}
+.site-nav .brand{font:800 1.1rem var(--font-display);text-decoration:none;white-space:nowrap}
+.site-nav ul{display:flex;gap:1.1rem;list-style:none;margin:0;padding:0;font:600 .92rem var(--font-display);overflow-x:auto;white-space:nowrap}
+.site-nav ul a{text-decoration:none;padding-block:.2rem;border-bottom:2px solid transparent}
+.site-nav ul a[aria-current=page]{border-color:var(--accent)}
+.hero{padding-block:clamp(3rem,9vw,7rem) clamp(2.5rem,6vw,4rem)}
+.hero-layout{display:grid;grid-template-columns:1fr;gap:2rem;align-items:center}
+.hero h1{font-size:clamp(3rem,9vw,7.5rem);font-weight:800;letter-spacing:-.045em}
+.hero p{max-width:42ch;margin:1.5rem 0 0;font-size:1.3rem;color:var(--muted)}
+.hero-image{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--surface);border-radius:1rem}
+@media(min-width:760px){.hero-layout{grid-template-columns:1.1fr .9fr}.hero-image{aspect-ratio:4/5;max-height:570px}}
+.section-title{font-size:clamp(2rem,5vw,3.5rem);margin-bottom:1.5rem;letter-spacing:-.03em}
+.home-panel{padding-block:1rem 4rem}
+.panel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:1rem}
+.panel-link{min-height:145px;padding:1.4rem;border:1px solid var(--line);border-radius:.8rem;background:var(--surface);display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;transition:transform .2s,border-color .2s}
+.panel-link:hover{transform:translateY(-3px);border-color:var(--accent)}
+.panel-link strong{font:700 clamp(1.5rem,3vw,2.2rem)/1 var(--font-display)}
+.panel-link span{color:var(--muted);font-size:.95rem}
+.page-head{padding-block:clamp(2.5rem,8vw,5rem) 2rem}
+.page-head h1{font-size:clamp(2.6rem,9vw,6rem);font-weight:800;letter-spacing:-.035em}
+.page-head p{max-width:55ch;margin:1rem 0 0;color:var(--muted);font-size:1.2rem}
+.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:var(--gap);padding-bottom:3rem}
+.project-card{display:block;text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1.2rem}
+.project-card img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--surface);border-radius:.7rem;margin-bottom:1rem}
+.project-card h2{font-size:clamp(1.7rem,4vw,2.5rem)}
+.project-card p{color:var(--muted);margin:.5rem 0}
+.project-card .counts{font-size:.9rem;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+.chips button{font:600 .95rem var(--font-display);padding:.35rem .9rem;border:1px solid var(--line);background:none;color:var(--ink);border-radius:99px;cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.group{padding-block:2rem 3rem;border-top:1px solid var(--line)}
+.group>h2{font-size:clamp(1.6rem,4vw,2.4rem);margin-bottom:1.5rem}
+.grid{display:grid;gap:var(--gap);grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));align-items:start}
+.card{margin:0}
+.caption{font-size:.95rem;color:var(--muted);margin:.5rem 0 0}
+.caption strong{color:var(--ink);font-weight:600}
+.embed{position:relative;aspect-ratio:16/9;background:var(--surface)}
+.embed.fixed{aspect-ratio:auto}
+.embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt{position:absolute;inset:0;width:100%;border:0;padding:0;cursor:pointer;background:var(--surface) center/cover no-repeat}
+.yt .play{position:absolute;left:50%;top:50%;width:4rem;height:4rem;translate:-50% -50%;border-radius:50%;background:var(--ink)}
+.yt .play:after{content:"";position:absolute;left:53%;top:50%;translate:-50% -50%;border-left:1.1rem solid var(--bg);border-block:.7rem solid transparent}
+.yt:hover .play{background:var(--accent)}
+.gallery{columns:3 240px;column-gap:var(--gap)}
+.gallery .card{break-inside:avoid;margin-bottom:var(--gap)}
+.gallery button{display:block;width:100%;padding:0;border:0;background:var(--surface);cursor:zoom-in;min-height:120px}
+.gallery img{width:100%;height:auto}
+dialog.lightbox{border:0;padding:0;background:transparent;max-width:96vw;max-height:96vh}
+dialog.lightbox::backdrop{background:rgb(0 0 0/.88)}
+dialog.lightbox img{max-width:96vw;max-height:88vh;margin:auto}
+dialog.lightbox form{text-align:center}
+dialog.lightbox button{margin-top:.6rem;font:600 1rem var(--font-display);padding:.4rem 1rem;cursor:pointer}
+.texts{list-style:none;margin:0;padding:0;max-width:70ch}
+.texts li{padding-block:1.1rem;border-bottom:1px solid var(--line)}
+.texts li:first-child{padding-top:0}
+.texts h3{font-size:1.35rem}
+.texts p{margin:.3rem 0 .5rem;color:var(--muted)}
+.texts a,details summary{font:600 .95rem var(--font-display)}
+details summary{cursor:pointer}
+.reading{margin-top:1rem;max-width:60ch}
+.empty{color:var(--muted);padding-block:2rem}
+.prose{max-width:70ch;padding-bottom:3rem}
+.prose p{margin:0 0 1rem}
+.cta{display:inline-block;margin-top:1rem;padding:.7rem 1.1rem;background:var(--ink);color:var(--bg);border-radius:99px;text-decoration:none;font:700 1rem var(--font-display)}
+footer{border-top:1px solid var(--line);padding-block:2.5rem;margin-top:3rem;color:var(--muted);font-size:.95rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.panel-link{transition:none}}
 </style>
 </head>
-
 <body>
 <nav class="site-nav" aria-label="Principal">
   <div class="wrap">
@@ -118,201 +103,140 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <ul id="nav-links"></ul>
   </div>
 </nav>
-
 <main class="wrap" id="app"></main>
-
-<footer>
-  <div class="wrap">
-    <span id="foot-name"></span>
-    <span><a id="foot-mail" href="#"></a> <a id="foot-ig" href="#">Instagram</a></span>
-  </div>
-</footer>
-
-<dialog class="lightbox" id="lightbox" aria-label="Foto ampliada">
-  <form method="dialog"><img id="lightbox-img" src="" alt=""><button>Cerrar</button></form>
-</dialog>
-
+<footer><div class="wrap"><span id="foot-name"></span><span><a id="foot-mail" href="#"></a> · <a id="foot-ig" href="#" target="_blank" rel="noopener">Instagram</a></span></div></footer>
+<dialog class="lightbox" id="lightbox" aria-label="Foto ampliada"><form method="dialog"><img id="lightbox-img" src="" alt=""><button>Cerrar</button></form></dialog>
 <script src="contenido.js"></script>
 <script>
-/* ===== Utilidades ===== */
-const TIPOS = { video: "Videos", musica: "Música", foto: "Fotos", texto: "Textos" };
-const UNIDAD = { video: ["video", "videos"], musica: ["tema", "temas"], foto: ["foto", "fotos"], texto: ["texto", "textos"] };
-const ORDEN = Object.keys(TIPOS);
-const app = document.getElementById("app");
-
-function el(tag, attrs, ...kids) {
-  const n = document.createElement(tag);
-  for (const [k, v] of Object.entries(attrs || {})) {
-    if (k === "class") n.className = v; else if (v != null && v !== false) n.setAttribute(k, v);
-  }
-  kids.flat().forEach(function (k) { if (k != null) n.append(k); });
+const TIPOS={video:"Videos",musica:"Música",foto:"Fotos",texto:"Textos"};
+const ORDEN=Object.keys(TIPOS),app=document.getElementById("app");
+const SECCIONES=[
+  {id:"quienes-somos",nombre:"Quiénes somos",detalle:"Conocé la colectiva"},
+  {id:"proyectos",nombre:"Proyectos",detalle:"Explorá lo que hacemos"},
+  {id:"videos",nombre:"Videos",detalle:"Audiovisual"},
+  {id:"fotos",nombre:"Fotos",detalle:"Imágenes y registros"},
+  {id:"musica",nombre:"Música",detalle:"Canciones y sonidos"},
+  {id:"textos",nombre:"Textos",detalle:"Lecturas y escritos"},
+  {id:"sumate",nombre:"Sumate",detalle:"Participá de la colectiva"}
+];
+function el(tag,attrs,...kids){
+  const n=document.createElement(tag);
+  for(const [k,v] of Object.entries(attrs||{})){if(k==="class")n.className=v;else if(k==="text")n.textContent=v;else if(v!=null&&v!==false)n.setAttribute(k,v)}
+  kids.flat().forEach(k=>{if(k!=null)n.append(k)});
   return n;
 }
-const proyectoPorId = id => PROYECTOS.find(p => p.id === id);
-const itemsDe = id => ITEMS.filter(i => !id || i.proyecto === id)
-  .sort((a, b) => (b.anio || 0) - (a.anio || 0));
-
-function resumen(items) {
-  return ORDEN.map(function (t) {
-    const n = items.filter(i => i.tipo === t).length;
-    return n ? n + " " + UNIDAD[t][n === 1 ? 0 : 1] : null;
-  }).filter(Boolean).join(", ");
+const proyectoPorId=id=>PROYECTOS.find(p=>p.id===id);
+const itemsDe=id=>ITEMS.filter(i=>!id||i.proyecto===id).sort((a,b)=>(b.anio||0)-(a.anio||0));
+function resumen(items){return ORDEN.map(t=>{const n=items.filter(i=>i.tipo===t).length;return n?n+" "+(n===1?({video:"video",musica:"tema",foto:"foto",texto:"texto"}[t]):({video:"videos",musica:"temas",foto:"fotos",texto:"textos"}[t])):null}).filter(Boolean).join(", ")}
+function caption(item){const c=el("p",{class:"caption"},el("strong",{},item.titulo||""));if(item.anio)c.append(", "+item.anio);return c}
+function youtube(id,titulo){
+ const b=el("button",{class:"yt",type:"button","aria-label":"Reproducir: "+titulo},el("span",{class:"play"}));
+ b.style.backgroundImage="url(https://i.ytimg.com/vi/"+encodeURIComponent(id)+"/hqdefault.jpg)";
+ b.addEventListener("click",()=>b.replaceWith(el("iframe",{src:"https://www.youtube-nocookie.com/embed/"+encodeURIComponent(id)+"?autoplay=1",title:titulo,allow:"autoplay; encrypted-media; picture-in-picture",allowfullscreen:""})));
+ return el("div",{class:"embed"},b);
 }
-
-/* ===== Piezas ===== */
-function caption(item, mostrarProyecto) {
-  const p = mostrarProyecto && proyectoPorId(item.proyecto);
-  const c = el("p", { class: "caption" }, el("strong", {}, item.titulo || ""));
-  if (item.anio) c.append(", " + item.anio);
-  if (p) c.append(" – ", el("a", { href: "#" + p.id }, p.nombre));
-  return c;
+function reproductor(item){
+ if(item.youtube)return youtube(item.youtube,item.titulo);
+ if(item.spotify&&/^(track|album|playlist|episode|artist)\/[A-Za-z0-9]+$/.test(item.spotify)){
+  const alto=item.spotify.startsWith("track/")||item.spotify.startsWith("episode/")?152:352;
+  return el("div",{class:"embed fixed",style:"height:"+alto+"px"},el("iframe",{src:"https://open.spotify.com/embed/"+item.spotify,title:item.titulo,loading:"lazy",allow:"encrypted-media; clipboard-write; fullscreen"}));
+ }
+ if(item.embed&&item.embed.startsWith("https://"))return el("div",{class:"embed fixed",style:"height:"+(Number(item.alto)||152)+"px"},el("iframe",{src:item.embed,title:item.titulo,loading:"lazy",allow:"encrypted-media"}));
+ return el("p",{class:"empty"},"Falta un reproductor para: "+item.titulo);
 }
-
-function youtube(id, titulo) {
-  const b = el("button", { class: "yt", type: "button", "aria-label": "Reproducir: " + titulo },
-    el("span", { class: "play" }));
-  b.style.backgroundImage = "url(https://i.ytimg.com/vi/" + encodeURIComponent(id) + "/hqdefault.jpg)";
-  b.addEventListener("click", function () {
-    b.replaceWith(el("iframe", {
-      src: "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(id) + "?autoplay=1",
-      title: titulo, allow: "autoplay; encrypted-media; picture-in-picture", allowfullscreen: ""
-    }));
+function tarjeta(item){
+ if(item.tipo==="video"||item.tipo==="musica")return el("figure",{class:"card"},reproductor(item),caption(item));
+ if(item.tipo==="foto"){
+  const img=el("img",{src:item.archivo,alt:item.titulo||"",loading:"lazy"});
+  return el("figure",{class:"card"},el("button",{type:"button","data-full":item.archivo,"aria-label":"Ampliar: "+(item.titulo||"foto")},img),caption(item));
+ }
+ const li=el("li",{},el("h3",{},item.titulo));
+ const meta=[item.anio,item.descripcion].filter(Boolean).join(". ");
+ if(meta)li.append(el("p",{},meta));
+ if(item.parrafos)li.append(el("details",{},el("summary",{},"Leer texto"),el("div",{class:"reading"},item.parrafos.map(t=>el("p",{},t)))));
+ if(item.archivo)li.append(el("a",{href:item.archivo,download:""},"Descargar"));
+ return li;
+}
+function pageHead(titulo,descripcion){return el("header",{class:"page-head"},el("h1",{},titulo),descripcion?el("p",{},descripcion):null)}
+function vistaInicio(){
+ document.title=SITIO.nombre;
+ const image=SITIO.imagenPortada||"img/portada.jpg";
+ app.replaceChildren(
+  el("header",{class:"hero"},el("div",{class:"hero-layout"},
+   el("div",{},el("h1",{},SITIO.nombre),el("p",{},SITIO.bajada||"")),
+   el("img",{class:"hero-image",src:image,alt:SITIO.altPortada||"Imagen de portada de "+SITIO.nombre})
+  )),
+  el("section",{class:"home-panel"},el("h2",{class:"section-title"},"Explorá"),el("div",{class:"panel-grid"},SECCIONES.map(s=>el("a",{class:"panel-link",href:"#"+s.id},el("strong",{},s.nombre),el("span",{},s.detalle)))))
+ );
+}
+function vistaProyectos(){
+ document.title="Proyectos – "+SITIO.nombre;
+ const cards=PROYECTOS.map(p=>el("a",{class:"project-card",href:"#"+p.id},
+  el("img",{src:p.imagen||"img/proyecto-"+p.id+".jpg",alt:"Imagen de "+p.nombre,loading:"lazy"}),
+  el("h2",{},p.nombre),el("p",{},p.descripcion||""),el("span",{class:"counts"},resumen(itemsDe(p.id))||"Ver proyecto")
+ ));
+ app.replaceChildren(pageHead("Proyectos","Conocé cada una de las experiencias que forman parte de la colectiva."),el("div",{class:"project-grid"},cards));
+}
+let filtro="todos";
+function vistaProyecto(proyecto){
+ const todos=itemsDe(proyecto.id),tipos=ORDEN.filter(t=>todos.some(i=>i.tipo===t));
+ const chips=el("div",{class:"chips",role:"group","aria-label":"Filtrar por tipo"}),cuerpo=el("div");
+ function pintar(){
+  chips.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.t===filtro)));
+  cuerpo.replaceChildren();
+  const visibles=tipos.filter(t=>filtro==="todos"||t===filtro);
+  if(!visibles.length)cuerpo.append(el("p",{class:"empty"},"Todavía no hay contenido cargado en este proyecto."));
+  visibles.forEach(t=>{
+   const piezas=todos.filter(i=>i.tipo===t).map(tarjeta);
+   cuerpo.append(el("section",{class:"group"},el("h2",{},TIPOS[t]),el(t==="texto"?"ul":"div",{class:t==="foto"?"gallery":t==="texto"?"texts":"grid"},piezas)));
   });
-  return el("div", { class: "embed" }, b);
+ }
+ if(tipos.length>1)["todos",...tipos].forEach(t=>{
+  const b=el("button",{type:"button","data-t":t},t==="todos"?"Todo":TIPOS[t]);
+  b.addEventListener("click",()=>{filtro=t;pintar()});chips.append(b);
+ });
+ app.replaceChildren(pageHead(proyecto.nombre,proyecto.descripcion),chips,cuerpo);pintar();
 }
-
-function reproductor(item) {
-  if (item.youtube) return youtube(item.youtube, item.titulo);
-  if (item.spotify && /^(track|album|playlist|episode|artist)\/[A-Za-z0-9]+$/.test(item.spotify)) {
-    const alto = item.spotify.startsWith("track/") || item.spotify.startsWith("episode/") ? 152 : 352;
-    return el("div", { class: "embed fixed", style: "height:" + alto + "px" },
-      el("iframe", { src: "https://open.spotify.com/embed/" + item.spotify, title: item.titulo, loading: "lazy",
-        allow: "encrypted-media; clipboard-write; fullscreen" }));
-  }
-  if (item.embed && item.embed.startsWith("https://")) {
-    return el("div", { class: "embed fixed", style: "height:" + (Number(item.alto) || 152) + "px" },
-      el("iframe", { src: item.embed, title: item.titulo, loading: "lazy", allow: "encrypted-media" }));
-  }
-  return el("p", { class: "empty" }, "Falta youtube, spotify o embed en: " + item.titulo);
+function vistaIndiceTipo(tipo){
+ const proyectos=PROYECTOS.filter(p=>itemsDe(p.id).some(i=>i.tipo===tipo));
+ app.replaceChildren(pageHead(TIPOS[tipo],"Elegí un proyecto para ver su contenido."),el("div",{class:"project-grid"},proyectos.map(p=>el("a",{class:"project-card",href:"#"+p.id+"?tipo="+tipo},
+  el("img",{src:p.imagen||"img/proyecto-"+p.id+".jpg",alt:"Imagen de "+p.nombre,loading:"lazy"}),
+  el("h2",{},p.nombre),el("p",{},p.descripcion||"")
+ ))));
 }
-
-function tarjeta(item, mostrarProyecto) {
-  if (item.tipo === "video" || item.tipo === "musica") {
-    return el("figure", { class: "card" }, reproductor(item), caption(item, mostrarProyecto));
-  }
-  if (item.tipo === "foto") {
-    const img = el("img", { src: item.archivo, alt: item.titulo || "", loading: "lazy" });
-    const b = el("button", { type: "button", "data-full": item.archivo, "aria-label": "Ampliar: " + (item.titulo || "foto") }, img);
-    return el("figure", { class: "card" }, b, caption(item, mostrarProyecto));
-  }
-  /* texto */
-  const li = el("li", {}, el("h3", {}, item.titulo));
-  const p = mostrarProyecto && proyectoPorId(item.proyecto);
-  const meta = [item.anio, item.descripcion].filter(Boolean).join(". ");
-  if (meta || p) {
-    const d = el("p", {}, meta);
-    if (p) d.append(meta ? " " : "", el("a", { href: "#" + p.id }, p.nombre));
-    li.append(d);
-  }
-  if (item.parrafos) {
-    li.append(el("details", {}, el("summary", {}, "Leer texto"),
-      el("div", { class: "reading" }, item.parrafos.map(t => el("p", {}, t)))));
-  }
-  if (item.archivo) li.append(el("a", { href: item.archivo, download: "" }, "Descargar"));
-  return li;
+function vistaTextoInstitucional(tipo){
+ const data=tipo==="quienes-somos"?SITIO.quienesSomos:SITIO.sumate;
+ const titulo=tipo==="quienes-somos"?"Quiénes somos":"Sumate";
+ const contenido=(data&&data.parrafos)||[];
+ const body=el("div",{class:"prose"});
+ if(contenido.length)contenido.forEach(p=>body.append(el("p",{},p)));
+ else body.append(el("p",{},tipo==="quienes-somos"?"Acá podés contar quiénes son, cómo nació la colectiva y qué los mueve. Editá SITIO.quienesSomos.parrafos en contenido.js.":"Acá podés explicar cómo participar y dejar los datos de contacto. Editá SITIO.sumate en contenido.js."));
+ if(tipo==="sumate"&&SITIO.email)body.append(el("a",{class:"cta",href:"mailto:"+SITIO.email},"Escribinos"));
+ app.replaceChildren(pageHead(titulo,data&&data.bajada),body);
 }
-
-/* ===== Vistas ===== */
-let filtro = "todos";
-
-function vistaInicio() {
-  document.title = SITIO.nombre;
-  const lista = el("ul", { class: "projects" });
-  PROYECTOS.forEach(function (p) {
-    lista.append(el("li", {}, el("a", { href: "#" + p.id },
-      el("h2", {}, p.nombre), el("p", {}, p.descripcion || ""),
-      el("span", { class: "counts" }, resumen(itemsDe(p.id))))));
-  });
-  lista.append(el("li", {}, el("a", { href: "#todo" },
-    el("h2", {}, "Todo junto"), el("p", {}, "Todos los videos, temas, fotos y textos en un solo lugar."),
-    el("span", { class: "counts" }, resumen(ITEMS)))));
-  app.replaceChildren(
-    el("header", { class: "hero" }, el("h1", {}, SITIO.nombre), el("p", {}, SITIO.bajada)),
-    lista);
+function ruta(){
+ const raw=decodeURIComponent(location.hash.slice(1))||"inicio",h=raw.split("?")[0];
+ filtro="todos";
+ const p=proyectoPorId(h);
+ if(h==="inicio")vistaInicio();
+ else if(h==="proyectos")vistaProyectos();
+ else if(p){vistaProyecto(p);const q=new URLSearchParams(raw.split("?")[1]||"");if(q.has("tipo")){filtro=q.get("tipo");const b=app.querySelector('[data-t="'+filtro+'"]');if(b)b.click()}}
+ else if(["videos","fotos","musica","textos"].includes(h))vistaIndiceTipo(({videos:"video",fotos:"foto",musica:"musica",textos:"texto"})[h]);
+ else if(h==="quienes-somos"||h==="sumate")vistaTextoInstitucional(h);
+ else vistaInicio();
+ document.querySelectorAll("#nav-links a").forEach(a=>a.toggleAttribute("aria-current",a.getAttribute("href")==="#"+h));
+ window.scrollTo(0,0);
 }
-
-function vistaColeccion(proyecto) {
-  const todos = itemsDe(proyecto && proyecto.id);
-  const titulo = proyecto ? proyecto.nombre : "Todo junto";
-  document.title = titulo + " – " + SITIO.nombre;
-
-  const chips = el("div", { class: "chips", role: "group", "aria-label": "Filtrar por tipo" });
-  const cuerpo = el("div");
-  const tipos = ORDEN.filter(t => todos.some(i => i.tipo === t));
-
-  function pintar() {
-    chips.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.t === filtro)));
-    cuerpo.replaceChildren();
-    const visibles = tipos.filter(t => filtro === "todos" || t === filtro);
-    if (!visibles.length) cuerpo.append(el("p", { class: "empty" }, "Todavía no hay nada acá."));
-    visibles.forEach(function (t) {
-      const piezas = todos.filter(i => i.tipo === t).map(i => tarjeta(i, !proyecto));
-      const clase = t === "foto" ? "gallery" : t === "texto" ? "texts" : "grid";
-      const cont = el(t === "texto" ? "ul" : "div", { class: clase }, piezas);
-      cuerpo.append(el("section", { class: "group" }, el("h2", {}, TIPOS[t]), cont));
-    });
-  }
-
-  if (tipos.length > 1) {
-    ["todos", ...tipos].forEach(function (t) {
-      const b = el("button", { type: "button", "data-t": t }, t === "todos" ? "Todo" : TIPOS[t]);
-      b.addEventListener("click", function () { filtro = t; pintar(); });
-      chips.append(b);
-    });
-  }
-
-  app.replaceChildren(
-    el("header", { class: "page-head" }, el("h1", {}, titulo),
-      proyecto && proyecto.descripcion ? el("p", {}, proyecto.descripcion) : null, chips),
-    cuerpo);
-  pintar();
-}
-
-/* ===== Rutas (por hash: #inicio, #todo, #id-del-proyecto) ===== */
-function ruta() {
-  const h = decodeURIComponent(location.hash.slice(1)) || "inicio";
-  filtro = "todos";
-  const p = proyectoPorId(h);
-  if (h === "todo") vistaColeccion(null);
-  else if (p) vistaColeccion(p);
-  else vistaInicio();
-  document.querySelectorAll("#nav-links a").forEach(function (a) {
-    if (a.getAttribute("href") === "#" + h) a.setAttribute("aria-current", "page");
-    else a.removeAttribute("aria-current");
-  });
-  window.scrollTo(0, 0);
-}
-
-/* ===== Inicio de la página ===== */
-document.getElementById("brand").textContent = SITIO.nombre;
-document.getElementById("foot-name").textContent = "© " + new Date().getFullYear() + " " + SITIO.nombre;
-const mail = document.getElementById("foot-mail"); mail.textContent = SITIO.email; mail.href = "mailto:" + SITIO.email;
-document.getElementById("foot-ig").href = SITIO.instagram;
-const nav = document.getElementById("nav-links");
-PROYECTOS.forEach(p => nav.append(el("li", {}, el("a", { href: "#" + p.id }, p.nombre))));
-nav.append(el("li", {}, el("a", { href: "#todo" }, "Todo")));
-
-/* Visor de fotos */
-const box = document.getElementById("lightbox"), boxImg = document.getElementById("lightbox-img");
-app.addEventListener("click", function (e) {
-  const b = e.target.closest(".gallery button");
-  if (!b) return;
-  boxImg.src = b.dataset.full; boxImg.alt = b.querySelector("img").alt; box.showModal();
-});
-box.addEventListener("click", function (e) { if (e.target === box) box.close(); });
-
-window.addEventListener("hashchange", ruta);
-ruta();
+document.getElementById("brand").textContent=SITIO.nombre;
+document.getElementById("foot-name").textContent="© "+new Date().getFullYear()+" "+SITIO.nombre;
+const mail=document.getElementById("foot-mail");mail.textContent=SITIO.email||"";mail.href=SITIO.email?"mailto:"+SITIO.email:"#";
+document.getElementById("foot-ig").href=SITIO.instagram||"#";
+const nav=document.getElementById("nav-links");
+SECCIONES.forEach(s=>nav.append(el("li",{},el("a",{href:"#"+s.id},s.nombre))));
+const box=document.getElementById("lightbox"),boxImg=document.getElementById("lightbox-img");
+app.addEventListener("click",e=>{const b=e.target.closest(".gallery button");if(!b)return;boxImg.src=b.dataset.full;boxImg.alt=b.querySelector("img").alt;box.showModal()});
+box.addEventListener("click",e=>{if(e.target===box)box.close()});
+window.addEventListener("hashchange",ruta);ruta();
 </script>
 </body>
 </html>

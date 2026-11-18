@@ -7,8 +7,10 @@
 const SITIO = {
   nombre: "VaTó Artística Colectiva",
   bajada: "Una forma de hacer arte en comunidad en tiempos de exaltación de lo individual.",
-  email: "tu@email.com",
-  instagram: "https://instagram.com/tuusuario"
+  imagenPortada: "img/LogoRojo0.png",
+  altPortada: "Descripción de la imagen para accesibilidad",  
+  email: "vato.artistica.colectiva@gmail.com",
+  instagram: "https://instagram.com/vato.artistica.colectiva"
 };
 
 /* ----------------------------------------------------------
@@ -16,8 +18,13 @@ const SITIO = {
    id:  una palabra en minúsculas, sin espacios ni acentos (va en la URL)
    ---------------------------------------------------------- */
 const PROYECTOS = [
-  { id: "theravennas", nombre: "The Ravennas", descripcion: "Banda de rock?" },
-  { id: "proyecto-dos", nombre: "Proyecto dos", descripcion: "Qué es este otro proyecto, en una frase." }
+  { id: "theravennas",
+    nombre: "The Ravennas",
+    descripcion: "Banda de rock?",
+    imagen: "img/TheRavennas.png"},
+  { id: "maquinas",
+    nombre: "Máquinas de Emoción Perpetua",
+    descripcion: "Qué es este otro proyecto, en una frase." }
 ];
 
 /* ----------------------------------------------------------

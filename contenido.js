@@ -78,9 +78,20 @@ const ITEMS = [
     parrafos: ["Primer párrafo del texto.", "Segundo párrafo del texto."] }
 ];
 
+colaborar: {
+  titulo: "Colaborá con el proyecto",
+  texto: "Si querés acompañar lo que hacemos, podés aportar de estas formas.",
+  alias: "vato.colectiva",
+  etiquetaAlias: "Alias Mercado Pago",
+  links: [
+    { nombre: "Invitanos un cafecito", url: "https://cafecito.app/tuusuario" },
+    { nombre: "Aportá por Mercado Pago", url: "https://mpago.la/XXXXX" }
+  ]
+},
+
 const NOVEDADES = [
   {
-    fecha: "2026-11-15",
+    fecha: "2026-10-13",
     titulo: "Nuevo video de The Ravennas",
     texto: "Ya podés ver el clip de nuestro último tema.",
     imagen: "img/Novedades/ravennas_mascaras.png",
@@ -89,6 +100,14 @@ const NOVEDADES = [
   },
   {
     fecha: "2026-11-02",
+    titulo: "Nuevo video de Maquinas de Emoción Perpetua",
+    texto: "Ya podés ver el clip de nuestro último tema.",
+    imagen: "img/Novedades/ravennas_mascaras.png",
+    proyecto: "maquinas",
+    textoLink: "Ver el proyecto"
+  },
+  {
+    fecha: "2026-12-02",
     titulo: "Fecha en vivo",
     texto: "Tocamos el sábado 28 en el centro cultural.",
     link: "https://instagram.com/p/XXXX",

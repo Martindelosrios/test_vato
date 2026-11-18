@@ -77,3 +77,21 @@ const ITEMS = [
   { proyecto: "proyecto-dos", tipo: "texto",  titulo: "Texto para leer acá", anio: 2023,
     parrafos: ["Primer párrafo del texto.", "Segundo párrafo del texto."] }
 ];
+
+const NOVEDADES = [
+  {
+    fecha: "2026-11-15",
+    titulo: "Nuevo video de The Ravennas",
+    texto: "Ya podés ver el clip de nuestro último tema.",
+    imagen: "img/novedad-clip.jpg",
+    proyecto: "theravennas",
+    textoLink: "Ver el proyecto"
+  },
+  {
+    fecha: "2026-11-02",
+    titulo: "Fecha en vivo",
+    texto: "Tocamos el sábado 28 en el centro cultural.",
+    link: "https://instagram.com/p/XXXX",
+    textoLink: "Más info en Instagram"
+  }
+];

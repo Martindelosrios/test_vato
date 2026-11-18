@@ -83,7 +83,7 @@ const NOVEDADES = [
     fecha: "2026-11-15",
     titulo: "Nuevo video de The Ravennas",
     texto: "Ya podés ver el clip de nuestro último tema.",
-    imagen: "img/Noveades/ravennas_mascaras.png",
+    imagen: "img/Novedades/ravennas_mascaras.png",
     proyecto: "theravennas",
     textoLink: "Ver el proyecto"
   },

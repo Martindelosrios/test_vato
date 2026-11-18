@@ -46,7 +46,7 @@ const ITEMS = [
   // ---- Proyecto uno ----
   { proyecto: "theravennas", tipo: "video",  titulo: "Título del video", anio: 2025, youtube: "lpFNldZWI6Y" },
   { proyecto: "theravennas", tipo: "musica", titulo: "Tema en Spotify", anio: 2025, spotify: "track/3Bq8ofXsAxoSppHT2c8Tjz" },
-  { proyecto: "theravennas", tipo: "musica", titulo: "Tema en YouTube", anio: 2024, youtube: "UxzvG8mewkc" }
+  { proyecto: "theravennas", tipo: "musica", titulo: "Tema en YouTube", anio: 2024, youtube: "UxzvG8mewkc" },
   { proyecto: "theravennas", tipo: "foto",   titulo: "Descripción de la foto", anio: 2025, archivo: "img/deep1.png" },
   { proyecto: "theravennas", tipo: "texto",  titulo: "Título del texto", anio: 2024,
     descripcion: "De qué trata este texto.", archivo: "textos/test.pdf" },

@@ -5,8 +5,8 @@
    ========================================================== */
 
 const SITIO = {
-  nombre: "Tu nombre artístico",
-  bajada: "Una o dos frases que cuenten quién sos y qué hacés.",
+  nombre: "VaTó Artística Colectiva",
+  bajada: "Una forma de hacer arte en comunidad en tiempos de exaltación de lo individual.",
   email: "tu@email.com",
   instagram: "https://instagram.com/tuusuario"
 };
@@ -16,7 +16,7 @@ const SITIO = {
    id:  una palabra en minúsculas, sin espacios ni acentos (va en la URL)
    ---------------------------------------------------------- */
 const PROYECTOS = [
-  { id: "proyecto-uno", nombre: "Proyecto uno", descripcion: "Qué es este proyecto, en una frase." },
+  { id: "theravennas", nombre: "The Ravennas", descripcion: "Banda de rock?" },
   { id: "proyecto-dos", nombre: "Proyecto dos", descripcion: "Qué es este otro proyecto, en una frase." }
 ];
 
@@ -44,13 +44,11 @@ const PROYECTOS = [
    ---------------------------------------------------------- */
 const ITEMS = [
   // ---- Proyecto uno ----
-  { proyecto: "proyecto-uno", tipo: "video",  titulo: "Título del video", anio: 2025, youtube: "lpFNldZWI6Y" },
-  { proyecto: "proyecto-uno", tipo: "musica", titulo: "Tema en Spotify", anio: 2025, spotify: "track/3Bq8ofXsAxoSppHT2c8Tjz" },
-  { proyecto: "proyecto-uno", tipo: "musica", titulo: "Tema en YouTube", anio: 2024, youtube: "ID_DEL_VIDEO" },
-  { proyecto: "proyecto-uno", tipo: "foto",   titulo: "Descripción de la foto", anio: 2025, archivo: "img/foto-01.jpg" },
-  { proyecto: "proyecto-uno", tipo: "foto",   titulo: "Otra foto", anio: 2024, archivo: "img/foto-02.jpg" },
-  { proyecto: "proyecto-uno", tipo: "texto",  titulo: "Título del texto", anio: 2024,
-    descripcion: "De qué trata este texto.", archivo: "textos/texto-01.pdf" },
+  { proyecto: "theravennas", tipo: "video",  titulo: "Título del video", anio: 2025, youtube: "lpFNldZWI6Y" },
+  { proyecto: "theravennas", tipo: "musica", titulo: "Tema en Spotify", anio: 2025, spotify: "track/3Bq8ofXsAxoSppHT2c8Tjz" },
+  { proyecto: "theravennas", tipo: "foto",   titulo: "Descripción de la foto", anio: 2025, archivo: "img/deep1.png" },
+  { proyecto: "theravennas", tipo: "texto",  titulo: "Título del texto", anio: 2024,
+    descripcion: "De qué trata este texto.", archivo: "textos/test.pdf" },
 
   // ---- Proyecto dos ----
   { proyecto: "proyecto-dos", tipo: "video",  titulo: "Otro video", anio: 2023, youtube: "ID_DEL_VIDEO" },

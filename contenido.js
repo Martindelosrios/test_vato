@@ -10,7 +10,9 @@ const SITIO = {
   imagenPortada: "img/LogoRojo0.png",
   altPortada: "Descripción de la imagen para accesibilidad",  
   email: "vato.artistica.colectiva@gmail.com",
-  instagram: "https://instagram.com/vato.artistica.colectiva"
+  instagram: "https://instagram.com/vato.artistica.colectiva",
+  imagenFondo: "img/LogoVatoNegro.svg",
+  velo: 50
 };
 
 /* ----------------------------------------------------------

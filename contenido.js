@@ -22,7 +22,7 @@ const SITIO = {
       { nombre: "Invitanos un cafecito", url: "https://cafecito.app/tuusuario" },
       { nombre: "Aportá por Mercado Pago", url: "https://mpago.la/XXXXX" }
     ]
-  },
+  }
 };
 
 /* ----------------------------------------------------------

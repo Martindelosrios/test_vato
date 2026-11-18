@@ -12,7 +12,17 @@ const SITIO = {
   email: "vato.artistica.colectiva@gmail.com",
   instagram: "https://instagram.com/vato.artistica.colectiva",
   imagenFondo: "img/LogoVatoNegro.svg",
-  velo: 50
+  velo: 50,
+  colaborar: {
+    titulo: "Colaborá con el proyecto",
+    texto: "Si querés acompañar lo que hacemos, podés aportar de estas formas.",
+    alias: "vato.colectiva",
+    etiquetaAlias: "Alias Mercado Pago",
+    links: [
+      { nombre: "Invitanos un cafecito", url: "https://cafecito.app/tuusuario" },
+      { nombre: "Aportá por Mercado Pago", url: "https://mpago.la/XXXXX" }
+    ]
+  },
 };
 
 /* ----------------------------------------------------------
@@ -77,17 +87,6 @@ const ITEMS = [
   { proyecto: "proyecto-dos", tipo: "texto",  titulo: "Texto para leer acá", anio: 2023,
     parrafos: ["Primer párrafo del texto.", "Segundo párrafo del texto."] }
 ];
-
-colaborar: {
-  titulo: "Colaborá con el proyecto",
-  texto: "Si querés acompañar lo que hacemos, podés aportar de estas formas.",
-  alias: "vato.colectiva",
-  etiquetaAlias: "Alias Mercado Pago",
-  links: [
-    { nombre: "Invitanos un cafecito", url: "https://cafecito.app/tuusuario" },
-    { nombre: "Aportá por Mercado Pago", url: "https://mpago.la/XXXXX" }
-  ]
-},
 
 const NOVEDADES = [
   {

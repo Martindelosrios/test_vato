@@ -88,6 +88,25 @@ const ITEMS = [
     parrafos: ["Primer párrafo del texto.", "Segundo párrafo del texto."] }
 ];
 
+
+const ENTREVISTAS = [
+  {
+    fecha: "2026-10-20",
+    medio: "Radio Universidad",
+    titulo: "Charla con The Ravennas",
+    texto: "Hablamos del último disco y de hacer arte en comunidad.",
+    youtube: "ID_DEL_VIDEO"
+  },
+  {
+    fecha: "2026-09-05",
+    medio: "Revista Ejemplo",
+    titulo: "Una colectiva en tiempos de exaltación de lo individual",
+    texto: "Nota sobre el proyecto y su recorrido.",
+    link: "https://revistaejemplo.com/nota",
+    textoLink: "Leer la nota"
+  }
+];
+
 const NOVEDADES = [
   {
     fecha: "2026-10-13",

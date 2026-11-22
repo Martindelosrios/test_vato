@@ -40,7 +40,7 @@ body.con-fondo .hero p{color:var(--ink)}
 .hero-layout{display:grid;grid-template-columns:1fr;gap:2rem;align-items:center}
 .hero h1{font-size:clamp(3rem,9vw,7.5rem);font-weight:var(--peso-titulo);letter-spacing:-.03em}
 .hero p{max-width:42ch;margin:1.5rem 0 0;font-size:1.3rem;color:var(--muted)}
-.hero-image{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--surface);border-radius:1rem}
+.hero-image{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--bg);border-radius:1rem}
 @media(min-width:760px){.hero-layout{grid-template-columns:1.1fr .9fr}.hero-image{aspect-ratio:4/5;max-height:570px}}
 .section-title{font-size:clamp(2rem,5vw,3.5rem);margin-bottom:1.5rem;letter-spacing:-.02em}
 .novedades{padding-block:1rem 3rem}
@@ -65,6 +65,7 @@ body.con-fondo .hero p{color:var(--ink)}
 .coment-btn{font:800 .9rem var(--font-display);padding:.3rem .8rem;border:2px solid var(--ink);border-radius:99px;background:none;color:var(--ink);cursor:pointer}
 .coment-btn:hover,.coment-btn[aria-expanded="true"]{background:var(--ink);color:var(--bg)}
 .coment-cont{margin-top:.8rem}
+.medio{font:800 .9rem var(--font-display);color:var(--accent)}
 .home-panel{padding-block:1rem 4rem}
 .panel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:1rem}
 .panel-link{min-height:145px;padding:1.4rem;border:1px solid var(--line);border-radius:.8rem;background:var(--surface);display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;transition:transform .2s,border-color .2s}
@@ -259,6 +260,23 @@ function seccionColaborar(){
  }
  return sec;
 }
+function seccionEntrevistas(){
+ if(typeof ENTREVISTAS==="undefined"||!ENTREVISTAS.length)return null;
+ const lista=[...ENTREVISTAS].sort((a,b)=>String(b.fecha||"").localeCompare(String(a.fecha||""))).slice(0,SITIO.entrevistasVisibles||ENTREVISTAS.length);
+ return el("section",{class:"novedades entrevistas"},el("h2",{class:"section-title"},"Entrevistas"),
+  el("div",{class:"novedades-grid"},lista.map(n=>{
+   const reproducible=n.youtube||n.spotify||n.embed;
+   const externo=typeof n.link==="string"&&/^https?:\/\//.test(n.link);
+   return el("article",{class:"novedad"},
+    reproducible?reproductor(n):null,
+    el("div",{class:"novedad-body"},
+     n.medio?el("span",{class:"medio"},n.medio):null,
+     n.fecha?el("time",{datetime:n.fecha},fechaLarga(n.fecha)):null,
+     el("h3",{},n.titulo||""),
+     n.texto?el("p",{},n.texto):null,
+     externo?el("a",{href:n.link,target:"_blank",rel:"noopener noreferrer"},n.textoLink||"Leer entrevista"):null));
+  })));
+}
 function vistaInicio(){
  document.title=SITIO.nombre;
  if(SITIO.imagenFondo){const f=document.getElementById("fondo");f.style.backgroundImage="url(\""+encodeURI(SITIO.imagenFondo)+"\")";f.style.setProperty("--velo",(SITIO.velo!=null?SITIO.velo:50)+"%");document.body.classList.add("con-fondo")}
@@ -269,6 +287,7 @@ function vistaInicio(){
    el("img",{class:"hero-image",src:image,alt:SITIO.altPortada||"Imagen de portada de "+SITIO.nombre})
   )),
   seccionNovedades(),
+  seccionEntrevistas(),
   el("section",{class:"home-panel"},el("h2",{class:"section-title"},"Explorá"),el("div",{class:"panel-grid"},SECCIONES.map(s=>el("a",{class:"panel-link",href:"#"+s.id},el("strong",{},s.nombre),el("span",{},s.detalle))))),
   seccionColaborar()
  );

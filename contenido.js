@@ -7,11 +7,11 @@
 const SITIO = {
   nombre: "VaTó Artística Colectiva",
   bajada: "Una forma de hacer arte en comunidad en tiempos de exaltación de lo individual.",
-  imagenPortada: "img/LogoRojo0.png",
+  imagenPortada: "img/LogoVatoNegro.svg",
   altPortada: "Descripción de la imagen para accesibilidad",  
   email: "vato.artistica.colectiva@gmail.com",
   instagram: "https://instagram.com/vato.artistica.colectiva",
-  imagenFondo: "img/LogoVatoNegro.svg",
+ /* imagenFondo: "img/LogoVatoNegro.svg", */
   velo: 50,
   colaborar: {
     titulo: "Colaborá con el proyecto",
